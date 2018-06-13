@@ -20,12 +20,12 @@
     <div class="jp-type-single">
       <div class="jp-gui jp-interface">
         <ul class="jp-controls">
-          <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-          <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-          <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-          <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-          <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-          <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+          <li><a href="javascript:void(0);" class="jp-play" tabindex="1">play</a></li>
+          <li><a href="javascript:void(0);" class="jp-pause" tabindex="1">pause</a></li>
+          <li><a href="javascript:void(0);" class="jp-stop" tabindex="1">stop</a></li>
+          <li><a href="javascript:void(0);" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+          <li><a href="javascript:void(0);" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+          <li><a href="javascript:void(0);" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
         </ul>
         <div class="jp-progress">
           <div class="jp-seek-bar">
@@ -39,8 +39,8 @@
           <div class="jp-current-time"></div>
           <div class="jp-duration"></div>
           <ul class="jp-toggles">
-            <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
-            <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+            <li><a href="javascript:void(0);" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+            <li><a href="javascript:void(0);" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
           </ul>
         </div>
       </div>
@@ -54,9 +54,9 @@
 
 <!-- LI template -->
 <script type="text/template" id="playlist-item">
-  <span class="item-play closed">play</span> 
-  <span class="item-title"><%= title %></span><br /> 
-  <span class="item-description closed"><%= description %></span> 
+  <span class="item-play closed">play</span>
+  <span class="item-title"><%= title %></span><br />
+  <span class="item-description closed"><%= description %></span>
   <span class="item-close closed" title="close this item">&#215;</span>
 </script>
 
@@ -65,11 +65,11 @@
 </script>
 
 <div class="wrap upper" id="player">
-  
+
 </div>
 
 <div class="wrap lower" id="playlist">
-  
+
 </div>
 
 <script type="text/javascript">
@@ -151,7 +151,7 @@ var PlaylistItemView=Backbone.View.extend({
       }
     }
   },
-  resetSiblings:function(e){ 
+  resetSiblings:function(e){
     siblings=$(this.el).siblings();
     for(i=0;i<siblings.length;i++){
       $(siblings[i]).css('background-color','transparent');
@@ -180,7 +180,7 @@ var PlayerView=Backbone.View.extend({
     "click .jp-play"   : "playPlayer",
     "click .jp-pause"  : "pausePlayer",
     "click .jp-mute"   : "mutePlayer",
-    "click .jp-unmute" : "unmutePlayer",        
+    "click .jp-unmute" : "unmutePlayer",
     "click .jp-stop"   : "stopPlayer",
     "click #reset-div" : "resetPlayer"
   },
@@ -191,11 +191,11 @@ var PlayerView=Backbone.View.extend({
     this.render();
   },
   render:function(){
-    $(this.el).empty();    
+    $(this.el).empty();
     $(this.el).append(this.template({"playerId":this.options.playerId}));
   },
   setPlayer:function(podcast){
-    $(this.playerString).jPlayer("destroy");    
+    $(this.playerString).jPlayer("destroy");
     $(this.playerString).jPlayer({
       ready:function(){
         console.log( podcast.get("link") );
@@ -216,7 +216,7 @@ var PlayerView=Backbone.View.extend({
     $(this.playerString).jPlayer("play");
   },
   pausePlayer:function(){
-    $(this.playerString).jPlayer("pause");    
+    $(this.playerString).jPlayer("pause");
   },
   mutePlayer:function(){
     $(this.playerString).jPlayer("mute");
@@ -294,7 +294,7 @@ var Jukebox={
             linkVar=$(this).find('enclosure').attr('url');
             titleVar=escape($(this).find('title').text());
             timeVar=escape($(this).find("itunes\\:duration,duration").text());
-            keyWords=escape($(this).find("itunes\\:keywords,keywords").text());                
+            keyWords=escape($(this).find("itunes\\:keywords,keywords").text());
             descrVar=escape($(this).find('description').text());
             subString +='{"link":"'+linkVar+'","title":"'+titleVar+'","time":"'+timeVar+'","description":"'+descrVar+'","keywords":"'+keyWords+'"}';
             if((itemLength - 1) != i) {
@@ -321,7 +321,7 @@ var Jukebox={
 
   init:function(fixins){
       this.settings.resource=fixins.resource;
-      this.Player=new PlayerView({"playerId":this.settings.playerId + this.settings.randomId,"vent":this.settings.vent});   
+      this.Player=new PlayerView({"playerId":this.settings.playerId + this.settings.randomId,"vent":this.settings.vent});
       this.mediaData=this.xmlToJson(this.settings.resource);
       this.makeList(this.mediaData,this.settings.playerId,this.settings.vent);
       $(".jp-pause,.jp-repeat-off,.jp-unmute").css('display','none');
