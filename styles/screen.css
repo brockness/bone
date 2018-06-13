@@ -1,0 +1,122 @@
+body {
+	font-family: sans-serif;
+	font-size: 12px;
+	background-color: #f0f0f0;
+	color: #369;
+}
+
+a {
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+p,ul,table,h1,h2 {
+	width: 90%;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.wrap {
+	width: 600px;
+	min-height: 100px;
+	margin: 5px auto;
+	padding: 5px 0;
+	background-color: #fafafa;
+	border: 1px solid #3a3a3a;
+}
+
+.upper {
+	margin-bottom: 0;
+	border-bottom: 0 none transparent;
+}
+
+.lower {
+	margin-top: 0;
+	border-top: 0 none transparent;
+}
+
+.wrap-wide {
+	width: 900px;
+	min-height: 400px;
+	margin: 50px auto;
+	padding: 0;
+	background-color: #fafafa;
+	border: 1px solid #3a3a3a;	
+}
+
+.wrap ul li {
+	list-style-type: none;
+	margin: 1em auto;
+	line-height: 1.5em;
+}
+
+#reset-div p {
+	height: 27px;
+	text-align: right;
+	text-decoration: underline;
+}
+
+#reset-div p:hover {
+	text-align: right;
+	text-decoration: none;
+}
+
+/* jplayer fixes */
+
+#playlist ul li {
+	margin: .2em 3%;
+	padding: .7em 2%;
+}
+
+.jp-audio {
+	width: 90%;
+	margin: 0 auto;	
+}
+
+.jp-title {
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.item-title,
+.item-description,
+.item-close,
+.item-play {
+	text-transform: capitalize;
+	margin: .05em;
+	padding: .03em .19em;
+}
+
+.item-close {
+	border: 1px solid #369;
+	background-color: #369;
+	color: #fff;
+}
+
+.item-close:hover {
+	background-color: transparent;
+	color: #369;
+}
+
+.item-play {
+	border: 1px solid #369;
+	background-color: #369;
+	color: white;
+}
+
+.item-play:hover {
+	background-color: transparent;
+	color: #369;
+}
+
+.closed {
+	display: none;
+}
+
+.open {
+	display: inline;
+}
